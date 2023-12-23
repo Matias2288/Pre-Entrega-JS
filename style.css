@@ -1,0 +1,15 @@
+*{
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f8ecdccb;
+}
+.titulo{
+    font-family: 'Rosarivo', cursive;
+    margin-top: 45px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;
+}
