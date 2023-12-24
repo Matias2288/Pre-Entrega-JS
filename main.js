@@ -13,13 +13,22 @@ let edad;
 let estado;
 let totalUsuarios;
 
+//Pedir Usuarios
+function pedirUsuarios(totalUsuarios){
+    if((totalUsuarios <= 10) && !isNaN(totalUsuarios)){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 //Estado
 function verificacionEdad(edad){
     if(edad < 18){
         return 'Es menor de edad 🧒';
     } else if((edad >= 18) && (edad < 60)){
         return 'Esta en la edad adulta 👨‍🦰' ;
-    } else if((edad > 60) && (edad < 100)){
+    } else if((edad >= 60) && (edad < 100)){
         return 'Esta en la vejez 👴';
     } else if (edad == 100){
         return 'No se como sigue con vida 😂'
@@ -44,12 +53,30 @@ function validarEdad(edad){
     }
 }
 
-totalUsuarios = parseInt(  prompt('¿Cuantos usuarios hay?')  )
+
+
+//totalUsuarios = parseInt(  prompt('¿Cuantos usuarios hay?')  )
+do{
+    totalUsuarios = parseInt(prompt('¿Cuantos usuarios hay?'))
+
+    if( ! pedirUsuarios(totalUsuarios)){
+        alert('Numero de usuarios invalido')
+    }
+}while(! pedirUsuarios(totalUsuarios))
 
 //Bucle principal
 
 for( let i=1; i <= totalUsuarios; i++ ){
 
+    /*
+    do{
+        totalUsuarios = parseInt(prompt('¿Cuantos usuarios hay?'))
+
+        if( ! pedirUsuarios(totalUsuarios)){
+            alert('Numero de usuarios invalido')
+        }
+    }while(! pedirUsuarios(totalUsuarios))
+*/
     do{ //pide el nombre hasta que sea valido
         usuario = prompt('Ingrese el nombre del usuario');
 
@@ -59,7 +86,7 @@ for( let i=1; i <= totalUsuarios; i++ ){
 
     }while(! validarNombre(usuario))
 
-    do{
+    do{ //pide la edad hasta que sea valida
         edad = parseInt(prompt('Ingrese la edad del usuario'));
 
         if( !validarEdad(edad)){
@@ -73,4 +100,5 @@ for( let i=1; i <= totalUsuarios; i++ ){
     
     console.log(mensaje);
     alert(mensaje);
+    document.write("<h2>"+mensaje+"</h2>");
 }
